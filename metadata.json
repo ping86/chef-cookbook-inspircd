@@ -1,0 +1,121 @@
+{
+  "name": "chef-cookbook-inspircd",
+  "description": "Install InspIRCd",
+  "long_description": "Description\n===========\n\nInstalls InspIRCd.\n\nTarget OS's: Ubuntu, Debian, Redhat, Centos\n\nRequirements\n============\n\n* build-essential\n\nAttributes\n==========\n\nDirectories: \n\n* `node['inspircd']['dir']`\n* `node['inspircd']['log_dir']`\n* `node['inspircd']['pid']`\n\ninspircd.conf values:\n\n* `node['inspircd']['user']`\n* `node['inspircd']['binary']`\n\nData Bags\n=========\n\nircd_admin\n    admin.json    {\"id\":\"adminname\",\"nick\":\"admin\",\"email\":\"admin@email.net\"}\n\nircd_opers:\n    *.json        {\"id\":\"oper1\",\"hash\":\"secret\",\"host\":\"*@localhost\",\"type\":\"NetAdmin\"}\n\nircd_services:\n    services.json {\"id\":\"services.fqdn.com\",\n                   \"ip\":\"127.0.0.1\",\"port\":\"7000\",\"allowmask\":\"127.0.0.1/24\",\n                   \"send_password\":\"foo\",\"recv_password\":\"bar\"}\n\nRecipes\n=======\n\ndefault.rb - Use the default recipe to install inspircd via a source tarball.\n\nSource build will enable the following modules:\n\n* m_sha256\n* m_md5\n* m_ripemd160\n* m_autoop\n\n",
+  "maintainer": "Mike Taylor",
+  "maintainer_email": "bear@andyet.net",
+  "license": "MIT",
+  "platforms": {
+    "ubuntu": ">= 0.0.0",
+    "debian": ">= 0.0.0",
+    "redhat": ">= 0.0.0",
+    "centos": ">= 0.0.0",
+    "arch": ">= 0.0.0"
+  },
+  "dependencies": {
+    "build-essential": ">= 0.0.0"
+  },
+  "recommendations": {
+  },
+  "suggestions": {
+  },
+  "conflicting": {
+  },
+  "providing": {
+  },
+  "replacing": {
+  },
+  "attributes": {
+    "inspircd/dir": {
+      "display_name": "inspircd Directory",
+      "description": "Location of inspircd configuration files",
+      "default": "/etc/inspircd",
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string",
+      "required": "optional",
+      "recipes": [
+
+      ]
+    },
+    "inspircd/log_dir": {
+      "display_name": "InspIRCd Log Directory",
+      "description": "Location for InspIRCd logs",
+      "default": "/var/log/inspircd",
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string",
+      "required": "optional",
+      "recipes": [
+
+      ]
+    },
+    "inspircd/library_dir": {
+      "display_name": "InspIRCd Library Directory",
+      "description": "Location for InspIRCd library files",
+      "default": "/var/lib/inspircd",
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string",
+      "required": "optional",
+      "recipes": [
+
+      ]
+    },
+    "inspircd/modules_dir": {
+      "display_name": "InspIRCd Modules Directory",
+      "description": "Location for InspIRCd modules",
+      "default": "/var/lib/inspircd/modules",
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string",
+      "required": "optional",
+      "recipes": [
+
+      ]
+    },
+    "inspircd/user": {
+      "display_name": "InspIRCd User",
+      "description": "User InspIRCd will run as",
+      "default": "ircd",
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string",
+      "required": "optional",
+      "recipes": [
+
+      ]
+    },
+    "inspircd/binary": {
+      "display_name": "InspIRCd Binary",
+      "description": "Location of the InspIRCd server binary",
+      "default": "/usr/sbin/inspircd",
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string",
+      "required": "optional",
+      "recipes": [
+
+      ]
+    }
+  },
+  "groupings": {
+  },
+  "recipes": {
+    "inspircd": "Install InspIRCd from source",
+    "services": "Install and configure Anope"
+  },
+  "version": "0.5.3"
+}
