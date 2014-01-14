@@ -186,4 +186,4 @@ service "inspircd" do
   action :enable
 end
 
-include_recipe "chef-cookbook-inspircd::services"
+#include_recipe "chef-cookbook-inspircd::services"
