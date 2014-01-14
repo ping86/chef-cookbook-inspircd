@@ -9,6 +9,7 @@ recipe "inspircd", "Install InspIRCd from source"
 recipe "services", "Install and configure Anope"
 
 depends "build-essential"
+depends "chef-solo-search"
 
 %w{ ubuntu debian redhat centos arch }.each do |os|
   supports os
